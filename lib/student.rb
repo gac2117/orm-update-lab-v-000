@@ -2,21 +2,21 @@ require_relative "../config/environment.rb"
 
 class Student
 
-  attr_accessor :name, :grade 
-  attr_reader :id 
+  attr_accessor :name, :grade
+  attr_reader :id
 
   def initialize(id=nil, name, grade)
     @id = id
-    @name = name 
-    @grade = grade 
+    @name = name
+    @grade = grade
   end
 
   def create_table
-    sql = <<-SQL 
+    sql = <<-SQL
       CREATE TABLE IF NOT EXISTS students(
         id INTEGER PRIMARY KEY,
         name TEXT,
-        grade TEXT 
+        grade TEXT
       )
       SQL
     DB[:conn].execute(sql)
